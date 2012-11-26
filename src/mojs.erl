@@ -11,7 +11,9 @@
 
 add_one(A) -> A+1.
 
+yeah(A) -> add_one(A).
+
 run() ->
-    add_one(1), % 2
-    add_one(1.0), %2.0
-    add_one("a"). %run time error ... not good.
+    yeah(1), % 2
+    yeah(1.0), %2.0
+    yeah("a"). %run time error ... not good.
