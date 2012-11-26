@@ -9,6 +9,8 @@
 
 -export([run/0]).
 
+-spec run() -> number().
+
 add_one(A) -> A+1.
 
 yeah(A) -> add_one(A).
