@@ -5,6 +5,15 @@ REBAR=./rebar
 all:
 	$(REBAR) get-deps compile
 
+clean:
+	$(REBAR) clean
+	rm -rf doc/*html
+	rm -rf doc/*png
+	find . -name "*~" -exec rm {} \;
+	find . -name ".#*" -exec rm {} \;
+	find . -name "erl_crash.dump" -exec rm {} \;
+	find . -name "#*#" -exec rm {} \;
+
 ## add your dependecies here. --apps [depencencies from otp] -r [our deps]
 init_dialyzer:
 	dialyzer --apps stdlib kernel -r deps --build_plt --output_plt .dialyzer.plt
