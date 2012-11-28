@@ -24,5 +24,6 @@ dialyzer:
 help:
 	@echo "Commands:"
 	@echo "  Build the system:  \t make"
+	@echo "  Clean the project:  \t make clean"
 	@echo "  Setup dialyzer:   \t make init_dialyzer"
 	@echo "  Run dialyzer:   \t make dialyzer"
