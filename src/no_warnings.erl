@@ -1,14 +1,6 @@
-%%% @author Andreas Hasselberg <andreas.hasselberg@gmail.com>
-%%% @copyright (C) 2012, Andreas Hasselberg
-%%% @doc
-%%%
-%%% @end
-%%% Created : 28 Nov 2012 by Andreas Hasselberg <andreas.hasselberg@gmail.com>
-
 -module(no_warnings).
 
 -export([func2/1]).
-
 
 func1(A) when is_integer(A) -> A;
 func1(A) -> {not_int, A}.
@@ -17,7 +9,9 @@ func1(A) -> {not_int, A}.
 func2(A) ->
     case func1(A) of
         {not_int, Int} when is_integer(Int) ->
-            %% this is not dead code according to dialyzer
+            %% This is not dead code according to dialyzer
+            %% The return type of func1/1 is integer | {not_int, any()}.
+            %% {not_int, any()} matches {not_int, integer()}.
             woho;
         Any -> Any
     end.
