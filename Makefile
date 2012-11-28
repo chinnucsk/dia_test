@@ -16,7 +16,7 @@ clean:
 
 ## add your dependecies here. --apps [depencencies from otp] -r [our deps]
 init_dialyzer:
-	dialyzer --apps stdlib kernel -r deps --build_plt --output_plt .dialyzer.plt
+	dialyzer --apps stdlib kernel erts -r deps --build_plt --output_plt .dialyzer.plt
 
 dialyzer:
 	dialyzer --no_native -Wno_return -r ebin --plt .dialyzer.plt
